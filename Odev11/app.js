@@ -49,7 +49,28 @@ console.log(`Beriltilen ürünler dizisinde içerisinde "samsung" kelimesi geçe
 
 
 let students = [
-    { "ad": "yiğit", "soyad": "bilgi", "notlar": [60, 70, 60] },
-    { "ad": "ada", "soyad": "bilgi", "notlar": [80, 70, 80] },
-    { "ad": "çınar", "soyad": "turan", "notlar": [10, 20, 60] }
+    { ad: "Yiğit", soyad: "Bilgi", notlar: [60, 70, 60] },
+    { ad: "Ada", soyad: "Bilgi", notlar: [80, 70, 80] },
+    { ad: "Çınar", soyad: "Turan", notlar: [10, 20, 60] }
 ];
+
+let avarageScores = []
+const calcScore = () => {
+    for (let index = 0; index < students.length; index++) {
+        let sum = 0;
+        for (let number of students[index].notlar) {
+            sum += number;
+        }
+        let scoreAvg = sum / students[index].notlar.length
+        console.log(students[index].ad + "  (" + scoreAvg.toFixed(2) + ") Not ortalamasına sahiptir.")
+        avarageScores.push(scoreAvg)
+    }
+}
+calcScore()
+
+let sumOfAvgScores = 0;
+for (let number of avarageScores) {
+    sumOfAvgScores += number;
+}
+let classAvarage = sumOfAvgScores / avarageScores.length
+console.log("Sınıfın not ortalaması: (" + classAvarage.toFixed(2) + ")")
